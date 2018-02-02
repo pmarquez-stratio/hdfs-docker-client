@@ -16,37 +16,37 @@ In future releases specific keytabs and krb5.conf could be configured in order t
 
 2. Connection to webhdfs via curl:
  
-  docker exec -ti hdfs-client curl -k -i -u:hdfs/hdfs1.labs.stratio.com --negotiate "https://hdfs1.labs.stratio.com:50471/webhdfs/v1/user?op=LISTSTATUS"
-  HTTP/1.1 401 Authentication required
-  Cache-Control: must-revalidate,no-cache,no-store
-  Date: Fri, 02 Feb 2018 14:03:22 GMT
-  Pragma: no-cache
-  Date: Fri, 02 Feb 2018 14:03:22 GMT
-  Pragma: no-cache
-  Content-Type: text/html; charset=iso-8859-1
-  WWW-Authenticate: Negotiate
-  Set-Cookie: hadoop.auth=; Path=/; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Secure; HttpOnly
-  Content-Length: 1408
-  Server: Jetty(6.1.26)
+    docker exec -ti hdfs-client curl -k -i -u:hdfs/hdfs1.labs.stratio.com --negotiate "https://hdfs1.labs.stratio.com:50471/webhdfs/v1/user?op=LISTSTATUS"
+    HTTP/1.1 401 Authentication required
+    Cache-Control: must-revalidate,no-cache,no-store
+    Date: Fri, 02 Feb 2018 14:03:22 GMT
+    Pragma: no-cache
+    Date: Fri, 02 Feb 2018 14:03:22 GMT
+    Pragma: no-cache
+    Content-Type: text/html; charset=iso-8859-1
+    WWW-Authenticate: Negotiate
+    Set-Cookie: hadoop.auth=; Path=/; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Secure; HttpOnly
+    Content-Length: 1408
+    Server: Jetty(6.1.26)
 
-  HTTP/1.1 200 OK
-  Cache-Control: no-cache
-  Expires: Fri, 02 Feb 2018 14:03:22 GMT
-  Date: Fri, 02 Feb 2018 14:03:22 GMT
-  Pragma: no-cache
-  Expires: Fri, 02 Feb 2018 14:03:22 GMT
-  Date: Fri, 02 Feb 2018 14:03:22 GMT
-  Pragma: no-cache
-  Content-Type: application/json
-  WWW-Authenticate: Negotiate oYH1MIHyoAMKAQChCwYJKoZIhvcSAQICom4EbGBqBgkqhkiG9xIBAgICAG9bMFmgAwIBBaEDAgEPok0wS6ADAgESokQEQioiO9CVf2IQBpNWwXJ75kwnHpsZ3Kb/+ewkVgqnNFOEuaUfvlysfb4tl+fFHt/WcNFfFRZ5xCqYWHhIQdgRxlQN4qNuBGxgagYJKoZIhvcSAQICAgBvWzBZoAMCAQWhAwIBD6JNMEugAwIBEqJEBEIqIjvQlX9iEAaTVsFye+ZMJx6bGdym//nsJFYKpzRThLmlH75crH2+LZfnxR7f1nDRXxUWecQqmFh4SEHYEcZUDeI=
-  Set-Cookie: hadoop.auth="u=hdfs&p=hdfs/hdfs1.labs.stratio.com@PERFORMANCE.STRATIO.COM&t=kerberos&e=1517616202298&s=8ufAfULHJek9UwswmB62hZin8dU="; Path=/; Expires=Sat, 03-Feb-2018 00:03:22 GMT; Secure; HttpOnly
-  Transfer-Encoding: chunked
-  Server: Jetty(6.1.26)
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Expires: Fri, 02 Feb 2018 14:03:22 GMT
+    Date: Fri, 02 Feb 2018 14:03:22 GMT
+    Pragma: no-cache
+    Expires: Fri, 02 Feb 2018 14:03:22 GMT
+    Date: Fri, 02 Feb 2018 14:03:22 GMT
+    Pragma: no-cache
+    Content-Type: application/json
+    WWW-Authenticate: Negotiate oYH1MIHyoAMKAQChCwYJKoZIhvcSAQICom4EbGBqBgkqhkiG9xIBAgICAG9bMFmgAwIBBaEDAgEPok0wS6ADAgESokQEQioiO9CVf2IQBpNWwXJ75kwnHpsZ3Kb/+ewkVgqnNFOEuaUfvlysfb4tl+fFHt/WcNFfFRZ5xCqYWHhIQdgRxlQN4qNuBGxgagYJKoZIhvcSAQICAgBvWzBZoAMCAQWhAwIBD6JNMEugAwIBEqJEBEIqIjvQlX9iEAaTVsFye+ZMJx6bGdym//nsJFYKpzRThLmlH75crH2+LZfnxR7f1nDRXxUWecQqmFh4SEHYEcZUDeI=
+    Set-Cookie: hadoop.auth="u=hdfs&p=hdfs/hdfs1.labs.stratio.com@PERFORMANCE.STRATIO.COM&t=kerberos&e=1517616202298&s=8ufAfULHJek9UwswmB62hZin8dU="; Path=/; Expires=Sat, 03-Feb-2018 00:03:22 GMT; Secure; HttpOnly
+    Transfer-Encoding: chunked
+    Server: Jetty(6.1.26)
 
-  {"FileStatuses":{"FileStatus":[
-  {"accessTime":0,"blockSize":0,"childrenNum":0,"fileId":16388,"group":"supergroup","length":0,"modificationTime":1517218857625,"owner":"hdfs","pathSuffix":"datio","permission":"755","replication":0,"storagePolicy":0,"type":"DIRECTORY"},
-  {"accessTime":0,"blockSize":0,"childrenNum":0,"fileId":16387,"group":"supergroup","length":0,"modificationTime":1517218853959,"owner":"hdfs","pathSuffix":"stratio","permission":"755","replication":0,"storagePolicy":0,"type":"DIRECTORY"}
-]}}
+    {"FileStatuses":{"FileStatus":[
+    {"accessTime":0,"blockSize":0,"childrenNum":0,"fileId":16388,"group":"supergroup","length":0,"modificationTime":1517218857625,"owner":"hdfs","pathSuffix":"datio","permission":"755","replication":0,"storagePolicy":0,"type":"DIRECTORY"},
+    {"accessTime":0,"blockSize":0,"childrenNum":0,"fileId":16387,"group":"supergroup","length":0,"modificationTime":1517218853959,"owner":"hdfs","pathSuffix":"stratio","permission":"755","replication":0,"storagePolicy":0,"type":"DIRECTORY"}
+    ]}}
 
 ### How can I build this Image?
 
