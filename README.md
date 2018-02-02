@@ -9,6 +9,7 @@ In future releases specific keytabs and krb5.conf could be configured in order t
 1. Connection via hadoop binaries:
 
     docker exec -ti hdfs-client /hadoop/bin/hdfs dfs -ls /
+
     Found 2 items
     drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:41 /tmp
     drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:40 /user
@@ -17,6 +18,7 @@ In future releases specific keytabs and krb5.conf could be configured in order t
 2. Connection to webhdfs via curl:
  
     docker exec -ti hdfs-client curl -k -i -u:hdfs/hdfs1.labs.stratio.com --negotiate "https://hdfs1.labs.stratio.com:50471/webhdfs/v1/user?op=LISTSTATUS"
+    
     HTTP/1.1 401 Authentication required
     Cache-Control: must-revalidate,no-cache,no-store
     Date: Fri, 02 Feb 2018 14:03:22 GMT
