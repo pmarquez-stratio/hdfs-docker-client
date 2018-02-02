@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+  <property>
+    <name>dfs.nameservices</name>
+    <value>stratio</value>
+  </property>
+  <property>
+    <name>dfs.ha.automatic-failover.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>dfs.ha.fencing.methods</name>
+    <value>sshfence</value>
+  </property>
+  <property>
+    <name>dfs.ha.fencing.ssh.private-key-files</name>
+    <value>/home/hdfs/.ssh/id_rsa</value>
+  </property>
+  <property>
+    <name>dfs.ha.namenodes.stratio</name>
+    <value>hdfs1,hdfs2</value>
+  </property>
+  <property>
+    <name>dfs.namenode.rpc-address.stratio.hdfs1</name>
+    <value>hdfs1.labs.stratio.com:8021</value>
+  </property>
+  <property>
+    <name>dfs.namenode.http-address.stratio.hdfs1</name>
+    <value>hdfs1.labs.stratio.com:50471</value>
+  </property>
+  <property>
+    <name>dfs.namenode.rpc-address.stratio.hdfs2</name>
+    <value>hdfs2.labs.stratio.com:8022</value>
+  </property>
+  <property>
+    <name>dfs.namenode.http-address.stratio.hdfs2</name>
+    <value>hdfs2.labs.stratio.com:50472</value>
+  </property>
+  <property>
+    <name>dfs.namenode.shared.edits.dir</name>
+    <value>qjournal://hdfs1.labs.stratio.com:8485;hdfs2.labs.stratio.com:8485;hdfs3.labs.stratio.com:8485/stratio</value>
+  </property>
+  <property>
+    <name>dfs.client.failover.proxy.provider.stratio</name>
+    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/storage/data/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/storage/data/hdfs/datanode</value>
+  </property>
+  <property>
+    <name>dfs.permissions.enabled</name>
+    <value>True</value>
+  </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
+<!-- Namenode -->
+  <property>
+    <name>dfs.block.access.token.enable</name>
+    <value>True</value>
+  </property>
+  <property>
+    <name>dfs.http.policy</name>
+    <value>HTTPS_ONLY</value>
+  </property>
+  <property>
+    <name>dfs.namenode.keytab.file</name>
+    <value>/opt/stratio/hadoop/conf/secrets/PERFORMANCE.STRATIO.COM.keytab</value>
+  </property>
+  <property>
+    <name>dfs.namenode.kerberos.principal</name>
+    <value>hdfs/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+  <property>
+    <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+    <value>HTTP/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+  <property>
+    <name>dfs.namenode.kerberos.internal.spnego.keytab</name>
+    <value>/opt/stratio/hadoop/conf/secrets/PERFORMANCE.STRATIO.COM.keytab</value>
+  </property>
+<!-- Datanode -->
+  <property>
+    <name>dfs.encrypt.data.transfer</name>
+    <value>True</value>
+  </property>
+  <property>
+    <name>dfs.encrypt.data.transfer.algorithm</name>
+    <value>3des</value>
+  </property>
+  <property>
+    <name>dfs.encrypt.data.transfer.cipher.suites</name>
+    <value>AES/CTR/NoPadding</value>
+  </property>
+  <property>
+    <name>dfs.encrypt.data.transfer.cipher.key.bitlength</name>
+    <value>128</value>
+  </property>
+  <property>
+    <name>dfs.datanode.address</name>
+    <value>0.0.0.0:10004</value>
+  </property>
+  <property>
+    <name>dfs.datanode.https.address</name>
+    <value>0.0.0.0:10006</value>
+  </property>
+  <property>
+    <name>dfs.data.transfer.protection</name>
+    <value>authentication</value>
+  </property>
+  <property>
+    <name>dfs.datanode.keytab.file</name>
+    <value>/opt/stratio/hadoop/conf/secrets/PERFORMANCE.STRATIO.COM.keytab</value>
+  </property>
+  <property>
+    <name>dfs.datanode.kerberos.principal</name>
+    <value>hdfs/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+<!-- JournalNode -->
+  <property>
+    <name>dfs.journalnode.edits.dir</name>
+    <value>/storage/data/hdfs/journalnode</value>
+  </property>
+  <property>
+    <name>dfs.journalnode.keytab.file</name>
+    <value>/opt/stratio/hadoop/conf/secrets/PERFORMANCE.STRATIO.COM.keytab</value>
+  </property>
+  <property>
+    <name>dfs.journalnode.kerberos.principal</name>
+    <value>hdfs/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+  <property>
+    <name>dfs.journalnode.kerberos.internal.spnego.principal</name>
+    <value>HTTP/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+<!-- WEB HDFS -->
+  <property>
+    <name>dfs.web.authentication.kerberos.keytab</name>
+    <value>/opt/stratio/hadoop/conf/secrets/PERFORMANCE.STRATIO.COM.keytab</value>
+  </property>
+  <property>
+    <name>dfs.web.authentication.kerberos.principal</name>
+    <value>HTTP/_HOST@PERFORMANCE.STRATIO.COM</value>
+  </property>
+</configuration>
+
