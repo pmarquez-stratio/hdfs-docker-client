@@ -8,10 +8,10 @@ In future releases specific keytabs and krb5.conf could be configured in order t
 
 1. Connection via hadoop binaries:
 
-  docker exec -ti hdfs-client /hadoop/bin/hdfs dfs -ls /
-  Found 2 items
-  drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:41 /tmp
-  drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:40 /user
+    docker exec -ti hdfs-client /hadoop/bin/hdfs dfs -ls /
+    Found 2 items
+    drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:41 /tmp
+    drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:40 /user
 
 
 2. Connection to webhdfs via curl:
