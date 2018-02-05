@@ -9,14 +9,27 @@ In future releases specific keytabs and krb5.conf could be configured in order t
 1. Connection via hadoop binaries:
 
     docker exec -ti hdfs-client /hadoop/bin/hdfs dfs -ls /
-
+    
     Found 2 items
     drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:41 /tmp
     drwxr-xr-x   - hdfs supergroup          0 2018-01-29 09:40 /user
 
+    docker exec -ti hdfs-client /hadoop/bin/hdfs dfs -ls hdfs://hdfsstratio/
+    
+    Found 2 items
+    -rw-r--r--   3 root supergroup          0 2018-02-05 13:23 hdfs://hdfsstratio/test
+    -rw-r--r--   3 root supergroup          0 2018-02-05 14:14 hdfs://hdfsstratio/test2
+
 
 2. Connection to webhdfs via curl:
- 
+
+    docker exec -ti hdfs-client curl name-1-node.hdfsstratio.mesos:9002/webhdfs/v1/?op=LISTSTATUS
+    
+    {"FileStatuses":{"FileStatus":[
+    {"accessTime":1517837020096,"blockSize":134217728,"childrenNum":0,"fileId":16386,"group":"supergroup","length":0,"modificationTime":1517837020165,"owner":"root","pathSuffix":"test","permission":"644","replication":3,"storagePolicy":0,"type":"FILE"},
+    {"accessTime":1517840078911,"blockSize":134217728,"childrenNum":0,"fileId":16387,"group":"supergroup","length":0,"modificationTime":1517840078969,"owner":"root","pathSuffix":"test2","permission":"644","replication":3,"storagePolicy":0,"type":"FILE"}
+    
+
     docker exec -ti hdfs-client curl -k -i -u:hdfs/hdfs1.labs.stratio.com --negotiate "https://hdfs1.labs.stratio.com:50471/webhdfs/v1/user?op=LISTSTATUS"
     
     HTTP/1.1 401 Authentication required
