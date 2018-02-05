@@ -21,6 +21,7 @@ In future releases specific keytabs and krb5.conf could be configured in order t
     -rw-r--r--   3 root supergroup          0 2018-02-05 14:14 hdfs://hdfsstratio/test2
 
 
+
 2. Connection to webhdfs via curl:
 
     docker exec -ti hdfs-client curl name-1-node.hdfsstratio.mesos:9002/webhdfs/v1/?op=LISTSTATUS
@@ -29,6 +30,7 @@ In future releases specific keytabs and krb5.conf could be configured in order t
     {"accessTime":1517837020096,"blockSize":134217728,"childrenNum":0,"fileId":16386,"group":"supergroup","length":0,"modificationTime":1517837020165,"owner":"root","pathSuffix":"test","permission":"644","replication":3,"storagePolicy":0,"type":"FILE"},
     {"accessTime":1517840078911,"blockSize":134217728,"childrenNum":0,"fileId":16387,"group":"supergroup","length":0,"modificationTime":1517840078969,"owner":"root","pathSuffix":"test2","permission":"644","replication":3,"storagePolicy":0,"type":"FILE"}
     
+
 
     docker exec -ti hdfs-client curl -k -i -u:hdfs/hdfs1.labs.stratio.com --negotiate "https://hdfs1.labs.stratio.com:50471/webhdfs/v1/user?op=LISTSTATUS"
     
@@ -76,4 +78,11 @@ To build the image execute this command:
 To run the image execute "start.sh":
 
        docker run --name hdfs-client --detach stratio/hdfs-docker-client:0.1.0
+
+
+       docker run -e DCOS_ENVIRONMENT='true' \
+       -e HOSTNAME_NAMENODE_0=10.200.0.58 \
+       -e HOSTNAME_NAMENODE_1=10.200.0.60 \
+       -e PORT_NAMENODE=9002 \
+       --name hdfs-client --detach stratio/hdfs-docker-client:0.1.0
 
